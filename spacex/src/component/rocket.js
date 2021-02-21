@@ -24,7 +24,7 @@ function Rocket(props) {
           </span>
           <br></br>
         </div>
-        <Link to="/info-r">
+        <Link to="/info-ro">
           <button type="button" class="btn btn-info">
             see more
           </button>
