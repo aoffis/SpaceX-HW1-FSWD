@@ -12,7 +12,7 @@ function Rocket(
           <h2 class="card-title d-inline">{props.data.rocket_name}</h2>
           <span class={props.data.active ? "badge rounded-pill bg-success ml-2 mb-2" : "badge rounded-pill bg-danger  ml-2 mb-2" }>{props.data.active ? "Success" : "Failed" }</span><br></br>
         </div>
-        <button type="button" class="btn btn-info">more detail</button>
+        <button type="button" class="btn btn-info">see more</button>
       </div>
     </div>
   )
