@@ -10,7 +10,7 @@ function Lauches() {
   useEffect(() => {
     const fetchLaunch = async () => {
       const res = await fetch(
-        "https://api.spacexdata.com/v3/launches?limit=100&launch_year=" +
+        "https://api.spacexdata.com/v3/launches?limit=200&launch_year=" +
           year +
           "&rocket_id=" +
           rocketName +
@@ -43,11 +43,7 @@ function Lauches() {
               >
                 {launch.launch_success ? "Success" : "Fail"}
               </span>
-              <p class="card-text">
-                {launch.launch_year}
-                <br></br>
-                {launch.launch_date_local}
-              </p>
+              <p class="card-text"></p>
               <Link
                 to={{
                   pathname: `/info-la/${launch.flight_number}`,
@@ -87,6 +83,7 @@ function Lauches() {
         <option value="2017">2017</option>
         <option value="2018">2018</option>
         <option value="2019">2019</option>
+        <option value="2020">2020</option>
       </select>
       <select
         onChange={(e) => {

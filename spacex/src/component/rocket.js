@@ -24,7 +24,11 @@ function Rocket(props) {
           </span>
           <br></br>
         </div>
-        <Link to="/info-ro">
+        <Link
+          to={{
+            pathname: `/info-ro/${props.data.rocket_id}`,
+          }}
+        >
           <button type="button" class="btn btn-info">
             see more
           </button>
