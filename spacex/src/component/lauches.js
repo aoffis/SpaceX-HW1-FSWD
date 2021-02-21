@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRouteMatch } from "react";
 import { Link } from "react-router-dom";
+
 function Lauches() {
   const [launch, setLaunch] = useState([]);
   const [year, setYear] = useState("");
@@ -47,7 +48,11 @@ function Lauches() {
                 <br></br>
                 {launch.launch_date_local}
               </p>
-              <Link to="/info-l">
+              <Link
+                to={{
+                  pathname: `/info-la/${launch.flight_number}`,
+                }}
+              >
                 <a class="btn btn-primary">See more</a>
               </Link>
             </div>

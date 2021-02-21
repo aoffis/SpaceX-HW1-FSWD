@@ -5,6 +5,7 @@ import "./App.css";
 import RocketPage from "./component/rocket.js";
 import LauchPage from "./component/lauches";
 import HomePage from "./component/home";
+import InfoLaunch from "./component/info-la";
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/lauches">
             <LauchPage />
+          </Route>
+          <Route path="/info-la/:Id">
+            <InfoLaunch />
           </Route>
         </Switch>
       </Router>
