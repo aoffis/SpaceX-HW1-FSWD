@@ -47,7 +47,7 @@ function Lauches() {
                 <br></br>
                 {launch.launch_date_local}
               </p>
-              <Link to="/info">
+              <Link to="/info-l">
                 <a class="btn btn-primary">See more</a>
               </Link>
             </div>
