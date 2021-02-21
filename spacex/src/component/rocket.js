@@ -1,60 +1,65 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, useEffect } from "react";
 
-function Rocket() {
+function Rocket(
+  props
+) {
   return (
     <div class="card bg-dark text-white">
-      <img src="https://via.placeholder.com/300x200" class="card-img" alt="..."></img>
+      <img src={props.data.flickr_images} class="card-img" alt="rocket" style={{ height: '45vh',objectFit: 'cover' }}></img>
       <div class="card-img-overlay">
-        <h2 class="card-title">name</h2>
-        <span class="badge rounded-pill bg-dark">status</span><br></br>
-        <button>more detail</button>
+        <div>
+          <h2 class="card-title d-inline">{props.data.rocket_name}</h2>
+          <span class={props.data.active ? "badge rounded-pill bg-success ml-2 mb-2" : "badge rounded-pill bg-danger  ml-2 mb-2" }>{props.data.active ? "Success" : "Failed" }</span><br></br>
+        </div>
+        <button type="button" class="btn btn-info">more detail</button>
       </div>
     </div>
-
   )
 }
 
 function App() {
+  const [aRocket, setRocket] = useState([]);
+  useEffect(() => {
+    const fetchLaunch = async () => {
+      const res = await fetch(
+        "https://api.spacexdata.com/v3/rockets"
+      );
+      const data = await res.json();
+      console.log(data);
+      setRocket(data);
+    };
+    fetchLaunch();
+  }, []);
+
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">SpaceX</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rockets</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Lauches</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="container">
+      {aRocket.length >= 1 && (      
+      <>
+        <br></br>
         <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-5">
-            <Rocket></Rocket>
+
+          <div class="col-sm-6">
+            <Rocket data={aRocket[0]}></Rocket>
           </div>
-          <div class="col-sm-5">
-            <Rocket></Rocket>
+          <div class="col-sm-6">
+            <Rocket data={aRocket[1]}></Rocket>
           </div>
-          <div class="col-sm-1"></div>
+
         </div>
+        <br></br>
         <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-5">
-            <Rocket></Rocket>
+
+          <div class="col-sm-6">
+            <Rocket data={aRocket[2]}></Rocket>
           </div>
-          <div class="col-sm-5">
-            <Rocket></Rocket>
+          <div class="col-sm-6">
+            <Rocket data={aRocket[3]}></Rocket>
           </div>
-          <div class="col-sm-1"></div>
+
         </div>
-      </div>
+      </>
+)}
     </>
   );
 }

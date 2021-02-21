@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+/*---------------------------------*/
+.carousel, .carousel-inner, .item, .active {
+  height: 92vh;
+}
+
+.pic1, .pic2, .pic3 {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pic1 {
+background-image: url(https://www.spacex.com/static/images/backgrounds-new/Desktop_StarL19_DSC_1291.webp);
+}
+
+.pic2 {
+background-image: url(https://static.pexels.com/photos/221315/pexels-photo-221315.jpeg);
+}
+
+.pic3 {
+background-image: url(https://static.pexels.com/photos/161820/monument-valley-west-western-161820.jpeg);
+}

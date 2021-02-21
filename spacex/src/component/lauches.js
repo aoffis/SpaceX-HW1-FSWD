@@ -34,7 +34,7 @@ function Lauches() {
               </h5>
               <span
                 class={
-                  launch.launch_success ? "badge bg-success" : "badge bg-danger"
+                  launch.launch_success ? "badge bg-success" : "badge bg-danger "
                 }
               >
                 {launch.launch_success ? "Success" : "Fail"}
