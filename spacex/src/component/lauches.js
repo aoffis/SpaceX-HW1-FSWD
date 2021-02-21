@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 function Lauches() {
   const [launch, setLaunch] = useState([]);
   const [year, setYear] = useState("");
@@ -34,7 +35,9 @@ function Lauches() {
               </h5>
               <span
                 class={
-                  launch.launch_success ? "badge bg-success" : "badge bg-danger "
+                  launch.launch_success
+                    ? "badge bg-success"
+                    : "badge bg-danger "
                 }
               >
                 {launch.launch_success ? "Success" : "Fail"}
@@ -44,8 +47,9 @@ function Lauches() {
                 <br></br>
                 {launch.launch_date_local}
               </p>
-
-              <a class="btn btn-primary">See more</a>
+              <Link to="/info">
+                <a class="btn btn-primary">See more</a>
+              </Link>
             </div>
           </div>
         </div>
