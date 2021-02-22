@@ -27,33 +27,33 @@ function InfoRocket() {
   return (
     <>
       {loaded && (
-        <>
-          <div class="row">
-            <div class="col-sm">
+        <><div class="container">
+          
+          <div class="row mt-4">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1.5" >
               <Link to="/rocket">
-                <button type="button" class="btn btn-light m-4">
+                <button type="button" class="btn btn-light border-secondary bg-black text-light m-2"
+                >
                   {" "}
-                  Back{" "}
+                  {"<"} Back{" "}
                 </button>
               </Link>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-              <div class="card text-black bg-black mb-3">
+            <div class="col-sm-8">
+              <div class="card border-secondary text-light bg-black mb-3">
                 <div class="card-body">
                   <img
                     src={eRocket.flickr_images}
                     class="card-img-top"
-                    style={{ height: "45vh", objectFit: "cover" }}
+                    style={{ height: "25vw", objectFit: "cover" }}
                   ></img>
-                  <h2 class="card-title">{eRocket.rocket_name}</h2>
+                  <h2 class="card-title mt-4">{eRocket.rocket_name}</h2>
                   <h6
                     class={
                       eRocket.active
                         ? "badge rounded-pill bg-success"
-                        : "badge rounded-pill bg-secondary "
+                        : "badge rounded-pill bg-secondary text-white "
                     }
                   >
                     {eRocket.active ? "Active" : "Inactive"}
@@ -69,7 +69,8 @@ function InfoRocket() {
                 </div>
               </div>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-2"></div>
+          </div>
           </div>
         </>
       )}

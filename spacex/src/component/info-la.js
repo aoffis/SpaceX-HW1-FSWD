@@ -26,27 +26,26 @@ function InfoLaunch() {
     <>
       {loaded && (
         <>
-          <div class="row">
-            <div class="col-sm">
+          <div class="row mt-4">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-1.5" >
               <Link to="/lauches">
-                <button type="button" class="btn btn-light m-4">
+                <button type="button" class="btn btn-light border-secondary bg-black text-light m-2"
+                >
                   {" "}
-                  Back{" "}
+                  {"<"} Back{" "}
                 </button>
               </Link>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3"></div>
             <div class="col-sm-4">
-              <div class="card text-black mb-3">
+              <div class="card card border-secondary text-light bg-black mb-3">
                 <div class="card-body">
                   <img
                     src={eLaunch.links.mission_patch}
-                    class="card-img-top"
-                    style={{ height: "45vh", objectFit: "cover" }}
+                    class="card-img-top center"
+                    style={{ width: "100%",maxWidth:"300px"}}
                   ></img>
-                  <h2 class="card-title">{eLaunch.mission_name}</h2>
+                  <h2 class="card-title mt-2">{eLaunch.mission_name}</h2>
                   <h6
                     class={
                       eLaunch.launch_success
@@ -56,9 +55,9 @@ function InfoLaunch() {
                   >
                     {eLaunch.active ? "Success" : "Failed"}
                   </h6>
-                  <p class="card-text mt-3">Year : {eLaunch.launch_year}</p>
+                  <p class="card-text mt-2">Year : {eLaunch.launch_year}</p>
                   <span class="card-text">
-                    Rocket :{" "}
+                    Rocket :
                     <Link to={`/info-ro/${eLaunch.rocket.rocket_id}`}>
                       <button type="button" class="btn btn-link">
                         {eLaunch.rocket.rocket_name}
@@ -69,7 +68,6 @@ function InfoLaunch() {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {eLaunch.details}
                   </p>
-                  <br></br>
                 </div>
               </div>
             </div>

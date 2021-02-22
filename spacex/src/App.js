@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Router>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
           <a>
             <Link class="navbar-brand" to="/">
               SpaceX
