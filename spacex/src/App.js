@@ -2,8 +2,10 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import RocketPage from "./component/rocket.js";
-import LauchPage from "./component/lauches";
+import LauchPage from "./component/launches";
 import HomePage from "./component/home";
 import InfoLaunch from "./component/info-la";
 import InfoRocket from "./component/info-ro";
@@ -11,39 +13,25 @@ import InfoRocket from "./component/info-ro";
 function App() {
   return (
     <>
+
       <Router>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-          <a>
-            <Link class="navbar-brand" to="/">
-              SpaceX
-            </Link>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <Link class="nav-link" to="/rocket">
-                  Rocket
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/lauches">
-                  Launches
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <Navbar collapseOnSelect expand="md" variant="dark" bg="black">
+          <Link to="/">
+            <Navbar.Brand>
+              <img src="https://svgshare.com/i/UQD.svg"
+              width="240px"
+              height="30px"
+              className="d-inline-block align-top"></img>
+            </Navbar.Brand>
+          </Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="mr-auto pt-2">
+                <Nav.Link href="/rocket">Rocket</Nav.Link>
+                <Nav.Link href="/launches">Launches</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -51,7 +39,7 @@ function App() {
           <Route path="/rocket">
             <RocketPage />
           </Route>
-          <Route path="/lauches">
+          <Route path="/launches">
             <LauchPage />
           </Route>
           <Route path="/info-la/:Id">
@@ -61,6 +49,7 @@ function App() {
             <InfoRocket />
           </Route>
         </Switch>
+        
       </Router>
     </>
   );
